@@ -1,73 +1,353 @@
+```css
 * {
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
-    min-height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-family: Arial, sans-serif;
-
-    background: #f5f0ff;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
 }
 
-.convite {
-    width: 90%;
-    max-width: 500px;
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #f8f5f0;
+    color: #3f3933;
+}
 
-    padding: 40px 25px;
+
+/* =========================
+   CAPA
+========================= */
+
+.capa {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     text-align: center;
 
-    background: white;
+    background:
+        linear-gradient(
+            rgba(25, 20, 15, 0.35),
+            rgba(25, 20, 15, 0.55)
+        ),
+        url("imagens/capa.jpg") center / cover no-repeat;
 
-    border-radius: 25px;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 }
 
-h1 {
-    margin-bottom: 15px;
+
+/* conteúdo da capa */
+
+.capa-conteudo {
+    color: white;
+
+    padding: 30px;
+
+    animation: aparecer 1.5s ease;
 }
 
-.evento {
-    font-size: 18px;
-    line-height: 1.5;
+
+.pequeno {
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 25px;
+
+    animation: aparecer 1.5s ease;
 }
 
-.botoes {
-    display: flex;
-    flex-direction: column;
 
-    gap: 15px;
+.capa h1 {
+    font-size: clamp(48px, 12vw, 85px);
 
-    margin-top: 30px;
+    font-weight: normal;
+
+    line-height: 0.95;
+
+    margin: 0 0 25px;
+
+    animation: subir 1.4s ease;
 }
 
-button {
-    padding: 16px;
 
-    border: none;
-    border-radius: 12px;
+.nomes {
+    font-size: 25px;
 
-    font-size: 16px;
+    letter-spacing: 3px;
+
+    margin-bottom: 45px;
+
+    animation: aparecer 2s ease;
+}
+
+
+/* botão abrir */
+
+.botao-abrir {
+    padding: 15px 35px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 30px;
+
+    font-size: 13px;
+
+    letter-spacing: 3px;
 
     cursor: pointer;
 
-    background: #6c4ccf;
-    color: white;
+    backdrop-filter: blur(5px);
 
-    transition: 0.2s;
+    transition: 0.3s;
+
+    animation: pulsar 2s infinite;
 }
 
-button:hover {
-    transform: scale(1.03);
+
+.botao-abrir:hover {
+    background: white;
+
+    color: #3f3933;
+
+    transform: scale(1.05);
 }
 
-button:active {
+
+/* =========================
+   ABERTURA
+========================= */
+
+.capa.saindo {
+    opacity: 0;
+
+    transform: scale(1.08);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   CONVITE
+========================= */
+
+.convite {
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 50px 20px;
+}
+
+
+.escondido {
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    pointer-events: none;
+}
+
+
+.conteudo {
+    width: 100%;
+
+    max-width: 500px;
+
+    text-align: center;
+
+    animation: subir 1.2s ease;
+}
+
+
+.introducao {
+    font-size: 18px;
+
+    font-style: italic;
+
+    margin-bottom: 5px;
+}
+
+
+h2 {
+    font-size: 38px;
+
+    font-weight: normal;
+
+    margin: 0 0 15px;
+}
+
+
+.data {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    margin: 40px 0 10px;
+}
+
+
+.data > span {
+    font-size: 80px;
+
+    font-weight: normal;
+
+    line-height: 1;
+}
+
+
+.data div {
+    text-align: left;
+
+    border-left: 1px solid #aaa;
+
+    padding-left: 20px;
+}
+
+
+.data strong {
+    display: block;
+
+    font-size: 15px;
+
+    letter-spacing: 3px;
+}
+
+
+.data small {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 15px;
+}
+
+
+.horario {
+    font-size: 20px;
+
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+   BOTÕES
+========================= */
+
+.botoes {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.botoes button {
+    width: 100%;
+
+    padding: 17px;
+
+    border: 1px solid #c8bfb5;
+
+    border-radius: 30px;
+
+    background: white;
+
+    color: #3f3933;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.botoes button:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+.botoes button:active {
     transform: scale(0.97);
 }
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+
+@keyframes subir {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes pulsar {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+}
+```

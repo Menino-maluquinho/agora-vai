@@ -1,48 +1,100 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Meu Convite</title>
+    <title>Nosso Casamento</title>
 
     <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
 
-    <main class="convite">
+    <!-- CAPA -->
+    <section id="capa" class="capa">
 
-        <h1>Você está convidado!</h1>
+        <div class="capa-conteudo">
 
-        <p class="evento">
-            Venha celebrar esse momento especial comigo!
-        </p>
+            <p class="pequeno">VOCÊ FOI CONVIDADO</p>
 
-        <p>
-            📅 10 de dezembro de 2026<br>
-            ⏰ 19:00
-        </p>
+            <h1>Nosso<br>Casamento</h1>
 
-        <div class="botoes">
+            <p class="nomes">Luiz &amp; Amor</p>
 
-            <button onclick="abrirLocalizacao()">
-                📍 Localização
+            <button class="botao-abrir" onclick="abrirConvite()">
+                ABRIR CONVITE
             </button>
 
-            <button onclick="abrirPresentes()">
-                🎁 Lista de presentes
-            </button>
+        </div>
 
-            <button onclick="confirmarPresenca()">
-                💬 Confirmar presença
-            </button>
+    </section>
+
+
+    <!-- CONVITE -->
+    <main id="convite" class="convite escondido">
+
+        <div class="conteudo">
+
+            <p class="introducao">
+                Com muita alegria,
+            </p>
+
+            <h2>convidamos você</h2>
+
+            <p>
+                para celebrar conosco<br>
+                o início de uma nova história.
+            </p>
+
+
+            <!-- DATA -->
+
+            <div class="data">
+
+                <span>10</span>
+
+                <div>
+                    <strong>DE DEZEMBRO</strong>
+                    <small>2026</small>
+                </div>
+
+            </div>
+
+
+            <p class="horario">
+                Às 19:00
+            </p>
+
+
+            <!-- BOTÕES -->
+
+            <div class="botoes">
+
+                <button onclick="abrirLocalizacao()">
+                    📍 Localização
+                </button>
+
+                <button onclick="abrirPresentes()">
+                    🎁 Lista de presentes
+                </button>
+
+                <button onclick="confirmarPresenca()">
+                    💬 Confirmar presença
+                </button>
+
+            </div>
 
         </div>
 
     </main>
 
+
     <script src="script.js"></script>
 
 </body>
+
 </html>
+```
